@@ -1,0 +1,16 @@
+apiVersion: v1 
+kind: Service
+metadata:  
+  name: result-app
+  annotations: 
+    service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
+spec: 
+  type: LoadBalancer
+  selector: 
+       app: frontend-result-app
+  ports:
+  - name: "result-service"
+    port: 8081
+    targetPort: 80
+    
+ 
